@@ -37,10 +37,10 @@
       <!-- Pager design buttons -->
       {#if $currentMode === "pager"}
         <button
-          class="absolute -top-[23.5px] hover:scale-110 active:scale-100 origin-bottom left-16 w-16 h-6 rounded-t-lg bg-white"
+          class="absolute -top-[23.5px] hover:scale-110 active:scale-100 origin-bottom left-16 w-16 h-6 rounded-t-lg bg-background dark:bg-white"
         ></button>
         <button
-          class="absolute -top-[23.5px] hover:scale-110 active:scale-100 origin-bottom right-16 w-16 h-6 rounded-t-lg bg-white"
+          class="absolute -top-[23.5px] hover:scale-110 active:scale-100 origin-bottom right-16 w-16 h-6 rounded-t-lg bg-background dark:bg-white"
         ></button>
       {/if}
 
