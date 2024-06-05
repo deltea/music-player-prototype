@@ -7,7 +7,7 @@ export default {
       colors: {
         "muted": "#ddd",
         "background": "rgb(82 82 82)",
-        "primary": "rgb(168 162 158)",
+        "primary": "var(--color-primary)",
 
         // Skins
         "red": "rgb(248 113 113)",
@@ -26,6 +26,9 @@ export default {
       },
       ringWidth: {
         "3": "3px",
+      },
+      fontSize: {
+        "icon": "2.5rem",
       }
     },
   },

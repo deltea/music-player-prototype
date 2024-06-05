@@ -1,0 +1,35 @@
+<script lang="ts">
+  import { fly, scale, slide } from "svelte/transition";
+  import { currentColor } from "$lib/stores";
+
+  function paint(color: string) {
+    currentColor.set(color);
+  }
+
+  const colors = {
+    "red": "rgb(248 113 113)",
+    "yellow": "rgb(251 191 36)",
+    "blue": "rgb(96 165 250)",
+    "green": "rgb(52 211 153)",
+    "purple": "rgb(167 139 250)",
+    "rose": "rgb(251 113 133)",
+    "stone": "rgb(168 162 158)",
+  }
+</script>
+
+<div
+  class="absolute right-0 top-0 flex flex-col gap-8 z-0"
+  transition:fly={{ x: -50, opacity: 100, duration: 200 }}
+>
+  {#each Object.values(colors) as color}
+    <button
+      on:click={() => paint(color)}
+      style:background-color={color}
+      class="rounded-full size-10 hover:scale-110 active:scale-100 relative text-white flex justify-center items-center {$currentColor === color && "ring-4 ring-white"}"
+    >
+      {#if $currentColor === color}
+        <iconify-icon icon="mdi:check-bold" class="text-xl"></iconify-icon>
+      {/if}
+    </button>
+  {/each}
+</div>
