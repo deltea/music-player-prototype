@@ -6,8 +6,4 @@
   * {
     transition-duration: 150ms;
   }
-
-  :root {
-    --color-primary: rgb(251 191 36);
-  }
 }

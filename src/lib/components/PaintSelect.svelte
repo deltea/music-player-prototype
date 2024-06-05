@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { fly, scale, slide } from "svelte/transition";
+  import { fly } from "svelte/transition";
   import { currentColor } from "$lib/stores";
 
   function paint(color: string) {
@@ -8,17 +8,17 @@
 
   const colors = {
     "red": "rgb(248 113 113)",
+    "orange": "rgb(251 146 60)",
     "yellow": "rgb(251 191 36)",
-    "blue": "rgb(96 165 250)",
     "green": "rgb(52 211 153)",
+    "blue": "rgb(96 165 250)",
     "purple": "rgb(167 139 250)",
-    "rose": "rgb(251 113 133)",
     "stone": "rgb(168 162 158)",
   }
 </script>
 
 <div
-  class="absolute right-0 top-0 flex flex-col gap-8 z-0"
+  class="absolute right-0 top-0 z-0 h-height flex gap-4 py-2 flex-col justify-between"
   transition:fly={{ x: -50, opacity: 100, duration: 200 }}
 >
   {#each Object.values(colors) as color}

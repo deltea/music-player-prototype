@@ -13,10 +13,11 @@
 <main class="flex justify-center items-center h-screen bg-white dark:bg-neutral-800 duration-0">
   <div class="pr-16 relative">
     <!-- The Player -->
-    <div class="border-4 dark:bg-primary border-muted dark:border-primary h-[30rem] w-[20rem] rounded-xxl p-8 flex flex-col gap-8 items-center z-50 relative {!isPaintOpen && "translate-x-8"}">
+    <div class="border-4 bg-white dark:bg-primary border-muted dark:border-primary h-height w-width rounded-xxl p-8 flex flex-col gap-8 items-center z-50 relative {!isPaintOpen && "translate-x-8"}">
       <!-- Screen content -->
       <div class="bg-muted dark:bg-white rounded-xl w-full h-[12rem]">
       </div>
+
       <!-- Controls -->
       <div class="w-full flex-grow flex flex-col justify-center gap-10">
         <div class="flex justify-between items-center">
@@ -32,12 +33,14 @@
             <button class="bg-background hover:scale-110 active:scale-100 rounded-b-lg"></button>
             <div></div>
           </div>
+
           <!-- A/B Buttons -->
           <div class="flex gap-4 rotate-skew">
             <button class="rounded-full bg-primary dark:bg-white size-10 hover:scale-110 active:scale-100 relative"></button>
             <button class="rounded-full bg-primary dark:bg-white size-10 hover:scale-110 active:scale-100 relative"></button>
           </div>
         </div>
+
         <!-- Volume Control -->
         <Slider.Root
           bind:value={volume}
