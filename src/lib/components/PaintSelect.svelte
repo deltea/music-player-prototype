@@ -31,7 +31,7 @@
       on:click={() => paint(color)}
       style:background-color={color}
       class={cn(
-        "rounded-full size-10 hover:scale-110 active:scale-100 relative text-white flex justify-center items-center",
+        "rounded-full size-10 hover:scale-110 active:scale-100 relative text-white flex justify-center items-center focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-neutral dark:focus-visible:ring-white focus-visible:ring-offset-2 dark:focus-visible:ring-offset-background",
         { "ring-4 ring-white": $currentColor === color },
       )}
     >

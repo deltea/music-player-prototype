@@ -6,7 +6,8 @@ export default {
     extend: {
       colors: {
         "muted": "#ddd",
-        "background": "rgb(82 82 82)",
+        "neutral": "rgb(82 82 82)",
+        "background": "#262626",
         "primary": "var(--color-primary)",
       },
       fontFamily: {

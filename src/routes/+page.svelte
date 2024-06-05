@@ -6,12 +6,12 @@
   import PaintSelect from "$components/PaintSelect.svelte";
   import Toolbar from "$components/Toolbar.svelte";
 
-  let volume = [100];
+  let value = [50];
   let isPaintOpen = false;
   let isPowerOn = false;
 </script>
 
-<main class="flex flex-col justify-center items-center h-screen bg-white dark:bg-neutral-800 duration-0">
+<main class="flex flex-col justify-center items-center h-screen bg-white dark:bg-background duration-0 selection:bg-primary selection:text-white">
   <div class={cn(
     "relative",
     { "pr-16": $currentMode === "gameboy" },
@@ -28,7 +28,7 @@
       },
     )}>
       <!-- Screen content -->
-      <div class="border-4 bg-white border-muted dark:border-white rounded-xl w-full h-[12rem] flex flex-col justify-center items-center font-bold text-background">
+      <div class="border-4 bg-white border-muted dark:border-white rounded-xl w-full h-[12rem] flex flex-col justify-center items-center font-bold text-neutral">
         the
         <span class="text-primary">{$currentMode}</span>
         design
@@ -37,10 +37,10 @@
       <!-- Pager design buttons -->
       {#if $currentMode === "pager"}
         <button
-          class="absolute -top-[23.5px] hover:scale-110 active:scale-100 origin-bottom left-16 w-16 h-6 rounded-t-lg bg-background dark:bg-white"
+          class="absolute -top-[23.5px] hover:scale-110 active:scale-100 origin-bottom left-16 w-16 h-6 rounded-t-lg bg-neutral dark:bg-white"
         ></button>
         <button
-          class="absolute -top-[23.5px] hover:scale-110 active:scale-100 origin-bottom right-16 w-16 h-6 rounded-t-lg bg-background dark:bg-white"
+          class="absolute -top-[23.5px] hover:scale-110 active:scale-100 origin-bottom right-16 w-16 h-6 rounded-t-lg bg-neutral dark:bg-white"
         ></button>
       {/if}
 
@@ -51,13 +51,13 @@
             <!-- Arrows -->
             <div class="grid grid-cols-3 size-[6rem]">
               <div></div>
-              <button class="bg-background hover:scale-110 active:scale-100 rounded-t-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-background dark:focus-visible:ring-background focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"></button>
+              <button class="bg-neutral hover:scale-110 active:scale-100 rounded-t-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-neutral dark:focus-visible:ring-neutral focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"></button>
               <div></div>
-              <button class="bg-background hover:scale-110 active:scale-100 rounded-l-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-background dark:focus-visible:ring-background focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"></button>
-              <div class="bg-background"></div>
-              <button class="bg-background hover:scale-110 active:scale-100 rounded-r-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-background dark:focus-visible:ring-background focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"></button>
+              <button class="bg-neutral hover:scale-110 active:scale-100 rounded-l-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-neutral dark:focus-visible:ring-neutral focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"></button>
+              <div class="bg-neutral"></div>
+              <button class="bg-neutral hover:scale-110 active:scale-100 rounded-r-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-neutral dark:focus-visible:ring-neutral focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"></button>
               <div></div>
-              <button class="bg-background hover:scale-110 active:scale-100 rounded-b-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-background dark:focus-visible:ring-background focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"></button>
+              <button class="bg-neutral hover:scale-110 active:scale-100 rounded-b-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-neutral dark:focus-visible:ring-neutral focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"></button>
               <div></div>
             </div>
 
@@ -75,20 +75,20 @@
 
         <!-- Tactile slider -->
         <Slider.Root
-          bind:value={volume}
+          bind:value={value}
           let:thumbs
           min={0}
           max={100}
           class="relative flex w-full items-center"
         >
           <span class="relative h-4 w-full grow overflow-hidden rounded-full bg-muted dark:bg-white">
-            <Slider.Range class="absolute h-full bg-primary dark:bg-background duration-75" />
+            <Slider.Range class="absolute h-full bg-primary dark:bg-neutral duration-75" />
           </span>
 
           {#each thumbs as thumb}
             <Slider.Thumb
               {thumb}
-              class="block w-5 h-8 bg-primary dark:bg-background rounded-md z-10 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary dark:focus-visible:ring-background focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary hover:cursor-pointer duration-75 hover:scale-110 active:scale-100"
+              class="block w-5 h-8 bg-primary dark:bg-neutral rounded-md z-10 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary dark:focus-visible:ring-neutral focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary hover:cursor-pointer duration-75 hover:scale-110 active:scale-100"
             />
           {/each}
         </Slider.Root>
