@@ -1,6 +1,7 @@
 <script lang="ts">
   import { fly } from "svelte/transition";
   import { currentColor } from "$lib/stores";
+    import { cn } from "$lib/utils";
 
   function paint(color: string) {
     currentColor.set(color);
@@ -25,7 +26,10 @@
     <button
       on:click={() => paint(color)}
       style:background-color={color}
-      class="rounded-full size-10 hover:scale-110 active:scale-100 relative text-white flex justify-center items-center {$currentColor === color && "ring-4 ring-white"}"
+      class={cn(
+        "rounded-full size-10 hover:scale-110 active:scale-100 relative text-white flex justify-center items-center",
+        { "ring-4 ring-white": $currentColor === color },
+      )}
     >
       {#if $currentColor === color}
         <iconify-icon icon="mdi:check-bold" class="text-xl"></iconify-icon>

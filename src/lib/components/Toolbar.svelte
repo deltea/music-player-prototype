@@ -3,6 +3,7 @@
 
   let isDarkMode = true;
   export let isPaintOpen: boolean;
+  export let isPowerOn: boolean;
 
   function toggleDarkMode() {
     isDarkMode = !isDarkMode
@@ -11,6 +12,16 @@
 </script>
 
 <div class="flex items-center gap-8 mt-8 text-primary dark:text-white text-icon">
+  <button
+    on:click={() => (isPowerOn = !isPowerOn)}
+    class={cn(
+      "hover:scale-110 active:scale-100 outline-none",
+      isPowerOn ? "text-primary" : "text-muted dark:text-white",
+    )}
+  >
+    <iconify-icon icon="mingcute:power-fill"></iconify-icon>
+  </button>
+
   <button
     on:click={toggleDarkMode}
     class={cn(

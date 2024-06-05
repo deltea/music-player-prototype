@@ -3,15 +3,20 @@
 
   import PaintSelect from "$components/PaintSelect.svelte";
   import Toolbar from "$components/Toolbar.svelte";
+    import { cn } from "$lib/utils";
 
   let volume = [100];
   let isPaintOpen = false;
+  let isPowerOn = false;
 </script>
 
 <main class="flex flex-col justify-center items-center h-screen bg-white dark:bg-neutral-800 duration-0">
   <div class="pr-16 relative">
     <!-- The Player -->
-    <div class="border-4 bg-white dark:bg-primary border-muted dark:border-primary h-height w-width rounded-xxl p-8 flex flex-col gap-8 items-center z-50 relative {!isPaintOpen && "translate-x-8"}">
+    <div class={cn(
+      "border-4 bg-white dark:bg-primary border-muted dark:border-primary h-height w-width rounded-xxl p-8 flex flex-col gap-8 items-center z-50 relative",
+      { "translate-x-8": !isPaintOpen },
+    )}>
       <!-- Screen content -->
       <div class="bg-muted dark:bg-white rounded-xl w-full h-[12rem]">
       </div>
@@ -66,5 +71,8 @@
     {/if}
   </div>
 
-  <Toolbar bind:isPaintOpen />
+  <Toolbar
+    bind:isPaintOpen
+    bind:isPowerOn
+  />
 </main>
