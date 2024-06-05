@@ -28,7 +28,7 @@
 </script>
 
 <div class="flex items-center gap-8 mt-8 text-primary dark:text-white text-icon">
-  <button
+  <!-- <button
     on:click={() => (isPowerOn = !isPowerOn)}
     class={cn(
       "hover:scale-110 active:scale-100 outline-none",
@@ -36,7 +36,7 @@
     )}
   >
     <iconify-icon icon="mingcute:power-fill"></iconify-icon>
-  </button>
+  </button> -->
 
   <button
     on:click={toggleDarkMode}
@@ -59,11 +59,11 @@
     <iconify-icon icon="mingcute:paint-2-fill"></iconify-icon>
   </button>
 
-  <button
+  <!-- <button
     class="hover:scale-110 active:scale-100 outline-none"
   >
     <iconify-icon icon="mingcute:save-2-fill"></iconify-icon>
-  </button>
+  </button> -->
 
   <button
     on:click={() => {

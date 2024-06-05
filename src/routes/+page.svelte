@@ -1,10 +1,10 @@
 <script lang="ts">
   import { Slider } from "bits-ui";
   import { cn } from "$lib/utils";
+  import { currentMode } from "$lib/stores";
 
   import PaintSelect from "$components/PaintSelect.svelte";
   import Toolbar from "$components/Toolbar.svelte";
-    import { currentMode } from "$lib/stores";
 
   let volume = [100];
   let isPaintOpen = false;
@@ -12,18 +12,26 @@
 </script>
 
 <main class="flex flex-col justify-center items-center h-screen bg-white dark:bg-neutral-800 duration-0">
-  <div class="pr-16 relative">
+  <div class={cn(
+    "relative",
+    { "pr-16": $currentMode === "gameboy" },
+    { "pr-32": $currentMode === "pager" },
+  )}>
     <!-- The Player -->
     <div class={cn(
       "border-4 bg-white dark:bg-primary border-muted dark:border-primary rounded-xxl p-8 flex flex-col gap-8 items-center z-50 relative",
       {
-        "translate-x-8": !isPaintOpen,
+        "translate-x-8": !isPaintOpen && $currentMode === "gameboy",
+        "translate-x-16": !isPaintOpen && $currentMode === "pager",
         "w-[20rem] h-[30rem]": $currentMode === "gameboy",
         "w-[30rem] h-[16rem]": $currentMode === "pager",
       },
     )}>
       <!-- Screen content -->
-      <div class="bg-muted dark:bg-white rounded-xl w-full h-[12rem]">
+      <div class="border-4 bg-white border-muted dark:border-white rounded-xl w-full h-[12rem] flex flex-col justify-center items-center">
+        the
+        <span class="text-primary">{$currentMode}</span>
+        design
       </div>
 
       <!-- Controls -->

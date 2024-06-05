@@ -9,6 +9,9 @@ export default {
         "background": "rgb(82 82 82)",
         "primary": "var(--color-primary)",
       },
+      fontFamily: {
+        "sans": ["monospace"],
+      },
       borderRadius: {
         "xxl": "2.5rem",
       },

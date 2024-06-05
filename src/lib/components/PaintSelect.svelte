@@ -1,7 +1,7 @@
 <script lang="ts">
   import { fly } from "svelte/transition";
-  import { currentColor } from "$lib/stores";
-    import { cn } from "$lib/utils";
+  import { currentColor, currentMode } from "$lib/stores";
+  import { cn } from "$lib/utils";
 
   function paint(color: string) {
     currentColor.set(color);
@@ -19,8 +19,12 @@
 </script>
 
 <div
-  class="absolute right-0 top-0 z-0 h-height flex gap-4 py-2 flex-col justify-between"
-  transition:fly={{ x: -50, opacity: 100, duration: 200 }}
+  class={cn(
+    "absolute right-0 top-0 z-0 grid gap-4 py-2 justify-between",
+    { "h-[30rem]": $currentMode === "gameboy" },
+    { "grid-cols-2 h-[16rem]": $currentMode === "pager" },
+  )}
+  transition:fly={{ x: -100, opacity: 100, duration: 200 }}
 >
   {#each Object.values(colors) as color}
     <button
