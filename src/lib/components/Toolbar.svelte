@@ -10,7 +10,7 @@
   }
 </script>
 
-<div class="fixed flex flex-col items-center gap-6 top-6 left-6 text-primary dark:text-white">
+<div class="flex items-center gap-8 mt-8 text-primary dark:text-white text-icon">
   <button
     on:click={toggleDarkMode}
     class={cn(
@@ -19,9 +19,9 @@
     )}
   >
     {#if isDarkMode}
-      <iconify-icon icon="mingcute:full-moon-fill" class="text-icon"></iconify-icon>
+      <iconify-icon icon="mingcute:full-moon-fill"></iconify-icon>
     {:else}
-      <iconify-icon icon="mingcute:sun-fill" class="text-icon"></iconify-icon>
+      <iconify-icon icon="mingcute:sun-fill"></iconify-icon>
     {/if}
   </button>
 
@@ -29,6 +29,12 @@
     on:click={() => (isPaintOpen = !isPaintOpen)}
     class="hover:scale-110 active:scale-100 outline-none"
   >
-    <iconify-icon icon="mingcute:paint-2-fill" class="text-icon"></iconify-icon>
+    <iconify-icon icon="mingcute:paint-2-fill"></iconify-icon>
+  </button>
+
+  <button
+    class="hover:scale-110 active:scale-100 outline-none"
+  >
+    <iconify-icon icon="mingcute:save-2-fill"></iconify-icon>
   </button>
 </div>

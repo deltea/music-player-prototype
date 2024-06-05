@@ -8,9 +8,7 @@
   let isPaintOpen = false;
 </script>
 
-<Toolbar bind:isPaintOpen />
-
-<main class="flex justify-center items-center h-screen bg-white dark:bg-neutral-800 duration-0">
+<main class="flex flex-col justify-center items-center h-screen bg-white dark:bg-neutral-800 duration-0">
   <div class="pr-16 relative">
     <!-- The Player -->
     <div class="border-4 bg-white dark:bg-primary border-muted dark:border-primary h-height w-width rounded-xxl p-8 flex flex-col gap-8 items-center z-50 relative {!isPaintOpen && "translate-x-8"}">
@@ -55,7 +53,7 @@
           {#each thumbs as thumb}
             <Slider.Thumb
               {thumb}
-              class="block w-5 h-8 bg-primary dark:bg-background rounded-md z-10 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary dark:focus-visible:ring-background focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary hover:cursor-pointer duration-75"
+              class="block w-5 h-8 bg-primary dark:bg-background rounded-md z-10 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary dark:focus-visible:ring-background focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary hover:cursor-pointer duration-75 hover:scale-110 active:scale-100"
             />
           {/each}
         </Slider.Root>
@@ -67,4 +65,6 @@
       <PaintSelect />
     {/if}
   </div>
+
+  <Toolbar bind:isPaintOpen />
 </main>
