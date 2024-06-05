@@ -1,9 +1,10 @@
 <script lang="ts">
   import { Slider } from "bits-ui";
+  import { cn } from "$lib/utils";
+  import { onMount } from "svelte";
 
   import PaintSelect from "$components/PaintSelect.svelte";
   import Toolbar from "$components/Toolbar.svelte";
-    import { cn } from "$lib/utils";
 
   let volume = [100];
   let isPaintOpen = false;

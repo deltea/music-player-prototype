@@ -1,14 +1,29 @@
 <script lang="ts">
   import { cn } from "$lib/utils";
+  import { onMount } from "svelte";
 
-  let isDarkMode = true;
   export let isPaintOpen: boolean;
   export let isPowerOn: boolean;
+
+  let isDarkMode = true;
 
   function toggleDarkMode() {
     isDarkMode = !isDarkMode
     document.documentElement.classList.toggle("dark", isDarkMode);
   }
+
+  onMount(() => {
+    document.documentElement.addEventListener("keydown", (e) => {
+      switch (e.key) {
+        case "p":
+          isPaintOpen = !isPaintOpen;
+          break;
+        case "d":
+          toggleDarkMode();
+          break;
+      }
+    });
+  });
 </script>
 
 <div class="flex items-center gap-8 mt-8 text-primary dark:text-white text-icon">
