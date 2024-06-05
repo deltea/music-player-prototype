@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { currentMode, currentModeIndex, modes } from "$lib/stores";
   import { cn } from "$lib/utils";
   import { onMount } from "svelte";
 
@@ -62,5 +63,14 @@
     class="hover:scale-110 active:scale-100 outline-none"
   >
     <iconify-icon icon="mingcute:save-2-fill"></iconify-icon>
+  </button>
+
+  <button
+    on:click={() => {
+      currentModeIndex.update(value => (value + 1) % modes.length);
+    }}
+    class="hover:scale-110 active:scale-100 outline-none"
+  >
+    <iconify-icon icon="mingcute:refresh-1-fill"></iconify-icon>
   </button>
 </div>

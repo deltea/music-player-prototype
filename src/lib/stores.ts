@@ -6,3 +6,15 @@ currentColor.subscribe(value => {
   if (!browser) return;
   document.body.style.setProperty("--color-primary", value);
 });
+
+export const modes = [
+  "gameboy",
+  "pager",
+] as const;
+export type Mode = typeof modes[number];
+export const currentMode = writable<Mode>("gameboy");
+
+export const currentModeIndex = writable(0);
+currentModeIndex.subscribe(value => {
+  currentMode.set(modes[value]);
+});

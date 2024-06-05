@@ -1,10 +1,10 @@
 <script lang="ts">
   import { Slider } from "bits-ui";
   import { cn } from "$lib/utils";
-  import { onMount } from "svelte";
 
   import PaintSelect from "$components/PaintSelect.svelte";
   import Toolbar from "$components/Toolbar.svelte";
+    import { currentMode } from "$lib/stores";
 
   let volume = [100];
   let isPaintOpen = false;
@@ -15,8 +15,12 @@
   <div class="pr-16 relative">
     <!-- The Player -->
     <div class={cn(
-      "border-4 bg-white dark:bg-primary border-muted dark:border-primary h-height w-width rounded-xxl p-8 flex flex-col gap-8 items-center z-50 relative",
-      { "translate-x-8": !isPaintOpen },
+      "border-4 bg-white dark:bg-primary border-muted dark:border-primary rounded-xxl p-8 flex flex-col gap-8 items-center z-50 relative",
+      {
+        "translate-x-8": !isPaintOpen,
+        "w-[20rem] h-[30rem]": $currentMode === "gameboy",
+        "w-[30rem] h-[16rem]": $currentMode === "pager",
+      },
     )}>
       <!-- Screen content -->
       <div class="bg-muted dark:bg-white rounded-xl w-full h-[12rem]">
@@ -24,7 +28,10 @@
 
       <!-- Controls -->
       <div class="w-full flex-grow flex flex-col justify-center gap-10">
-        <div class="flex justify-between items-center">
+        <div class={cn(
+          "flex justify-between items-center",
+          { "hidden": $currentMode === "pager" }
+        )}>
           <!-- Arrows -->
           <div class="grid grid-cols-3 size-[6rem]">
             <div></div>
@@ -45,7 +52,7 @@
           </div>
         </div>
 
-        <!-- Volume Control -->
+        <!-- Tactile slider -->
         <Slider.Root
           bind:value={volume}
           let:thumbs
