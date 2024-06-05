@@ -34,31 +34,44 @@
         design
       </div>
 
+      <!-- Pager design buttons -->
+      {#if $currentMode === "pager"}
+        <button
+          class="absolute -top-[23.5px] hover:scale-110 active:scale-100 origin-bottom left-16 w-16 h-6 rounded-t-lg bg-white"
+        ></button>
+        <button
+          class="absolute -top-[23.5px] hover:scale-110 active:scale-100 origin-bottom right-16 w-16 h-6 rounded-t-lg bg-white"
+        ></button>
+      {/if}
+
       <!-- Controls -->
       <div class="w-full flex-grow flex flex-col justify-center gap-10">
-        <div class={cn(
-          "flex justify-between items-center",
-          { "hidden": $currentMode === "pager" }
-        )}>
-          <!-- Arrows -->
-          <div class="grid grid-cols-3 size-[6rem]">
-            <div></div>
-            <button class="bg-background hover:scale-110 active:scale-100 rounded-t-lg"></button>
-            <div></div>
-            <button class="bg-background hover:scale-110 active:scale-100 rounded-l-lg"></button>
-            <div class="bg-background"></div>
-            <button class="bg-background hover:scale-110 active:scale-100 rounded-r-lg"></button>
-            <div></div>
-            <button class="bg-background hover:scale-110 active:scale-100 rounded-b-lg"></button>
-            <div></div>
-          </div>
+        {#if $currentMode === "gameboy"}
+          <div class="flex justify-between items-center">
+            <!-- Arrows -->
+            <div class="grid grid-cols-3 size-[6rem]">
+              <div></div>
+              <button class="bg-background hover:scale-110 active:scale-100 rounded-t-lg"></button>
+              <div></div>
+              <button class="bg-background hover:scale-110 active:scale-100 rounded-l-lg"></button>
+              <div class="bg-background"></div>
+              <button class="bg-background hover:scale-110 active:scale-100 rounded-r-lg"></button>
+              <div></div>
+              <button class="bg-background hover:scale-110 active:scale-100 rounded-b-lg"></button>
+              <div></div>
+            </div>
 
-          <!-- A/B Buttons -->
-          <div class="flex gap-4 rotate-skew">
-            <button class="rounded-full bg-primary dark:bg-white size-10 hover:scale-110 active:scale-100 relative"></button>
-            <button class="rounded-full bg-primary dark:bg-white size-10 hover:scale-110 active:scale-100 relative"></button>
+            <!-- A/B Buttons -->
+            <div class="flex gap-4 rotate-skew">
+              <button
+                class="rounded-full bg-primary dark:bg-white size-10 hover:scale-110 active:scale-100 relative"
+              ></button>
+              <button
+                class="rounded-full bg-primary dark:bg-white size-10 hover:scale-110 active:scale-100 relative"
+              ></button>
+            </div>
           </div>
-        </div>
+        {/if}
 
         <!-- Tactile slider -->
         <Slider.Root
@@ -68,7 +81,7 @@
           max={100}
           class="relative flex w-full items-center"
         >
-          <span class="relative h-3 w-full grow overflow-hidden rounded-full bg-muted dark:bg-white">
+          <span class="relative h-4 w-full grow overflow-hidden rounded-full bg-muted dark:bg-white">
             <Slider.Range class="absolute h-full bg-primary dark:bg-background duration-75" />
           </span>
           {#each thumbs as thumb}
