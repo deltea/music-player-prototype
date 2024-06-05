@@ -21,8 +21,8 @@
 <div
   class={cn(
     "absolute right-0 top-0 z-0 grid gap-4 py-2 justify-between",
-    { "h-[30rem]": $currentMode === "gameboy" },
-    { "grid-cols-2 h-[16rem]": $currentMode === "pager" },
+    { "h-gameboy-height": $currentMode === "gameboy" },
+    { "grid-cols-2 h-pager-height": $currentMode === "pager" },
   )}
   transition:fly={{ x: -100, opacity: 100, duration: 200 }}
 >

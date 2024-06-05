@@ -23,8 +23,8 @@
       {
         "translate-x-8": !isPaintOpen && $currentMode === "gameboy",
         "translate-x-16": !isPaintOpen && $currentMode === "pager",
-        "w-[20rem] h-[30rem]": $currentMode === "gameboy",
-        "w-[30rem] h-[16rem]": $currentMode === "pager",
+        "w-gameboy-width h-gameboy-height": $currentMode === "gameboy",
+        "w-pager-width h-pager-height": $currentMode === "pager",
       },
     )}>
       <!-- Screen content -->

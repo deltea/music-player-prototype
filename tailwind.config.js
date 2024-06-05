@@ -25,8 +25,10 @@ export default {
         "icon": "2.5rem",
       },
       spacing: {
-        "height": "30rem",
-        "width": "20rem",
+        "gameboy-width": "20rem",
+        "gameboy-height": "30rem",
+        "pager-width": "30rem",
+        "pager-height": "16rem",
       }
     },
   },
