@@ -28,7 +28,7 @@
       },
     )}>
       <!-- Screen content -->
-      <div class="border-4 bg-white border-muted dark:border-white rounded-xl w-full h-[12rem] flex flex-col justify-center items-center">
+      <div class="border-4 bg-white border-muted dark:border-white rounded-xl w-full h-[12rem] flex flex-col justify-center items-center font-bold text-background">
         the
         <span class="text-primary">{$currentMode}</span>
         design
@@ -51,23 +51,23 @@
             <!-- Arrows -->
             <div class="grid grid-cols-3 size-[6rem]">
               <div></div>
-              <button class="bg-background hover:scale-110 active:scale-100 rounded-t-lg"></button>
+              <button class="bg-background hover:scale-110 active:scale-100 rounded-t-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-background dark:focus-visible:ring-background focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"></button>
               <div></div>
-              <button class="bg-background hover:scale-110 active:scale-100 rounded-l-lg"></button>
+              <button class="bg-background hover:scale-110 active:scale-100 rounded-l-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-background dark:focus-visible:ring-background focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"></button>
               <div class="bg-background"></div>
-              <button class="bg-background hover:scale-110 active:scale-100 rounded-r-lg"></button>
+              <button class="bg-background hover:scale-110 active:scale-100 rounded-r-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-background dark:focus-visible:ring-background focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"></button>
               <div></div>
-              <button class="bg-background hover:scale-110 active:scale-100 rounded-b-lg"></button>
+              <button class="bg-background hover:scale-110 active:scale-100 rounded-b-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-background dark:focus-visible:ring-background focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"></button>
               <div></div>
             </div>
 
             <!-- A/B Buttons -->
             <div class="flex gap-4 rotate-skew">
               <button
-                class="rounded-full bg-primary dark:bg-white size-10 hover:scale-110 active:scale-100 relative"
+                class="rounded-full bg-primary dark:bg-white size-10 hover:scale-110 active:scale-100 relative focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary dark:focus-visible:ring-white focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"
               ></button>
               <button
-                class="rounded-full bg-primary dark:bg-white size-10 hover:scale-110 active:scale-100 relative"
+                class="rounded-full bg-primary dark:bg-white size-10 hover:scale-110 active:scale-100 relative focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary dark:focus-visible:ring-white focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"
               ></button>
             </div>
           </div>
@@ -84,6 +84,7 @@
           <span class="relative h-4 w-full grow overflow-hidden rounded-full bg-muted dark:bg-white">
             <Slider.Range class="absolute h-full bg-primary dark:bg-background duration-75" />
           </span>
+
           {#each thumbs as thumb}
             <Slider.Thumb
               {thumb}
