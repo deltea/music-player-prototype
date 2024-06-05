@@ -5,6 +5,7 @@
 
   import PaintSelect from "$components/PaintSelect.svelte";
   import Toolbar from "$components/Toolbar.svelte";
+  import Display from "$components/Display.svelte";
 
   let value = [50];
   let isPaintOpen = false;
@@ -27,12 +28,9 @@
         "w-pager-width h-pager-height": $currentMode === "pager",
       },
     )}>
-      <!-- Screen content -->
-      <div class="border-4 bg-white border-muted dark:border-white rounded-xl w-full h-[12rem] flex flex-col justify-center items-center font-bold text-neutral">
-        the
-        <span class="text-primary">{$currentMode}</span>
-        design
-      </div>
+      <Display
+        bind:value
+      />
 
       <!-- Pager design buttons -->
       {#if $currentMode === "pager"}
