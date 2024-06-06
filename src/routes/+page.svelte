@@ -9,7 +9,7 @@
 
   let value = [50];
   let isPaintOpen = false;
-  let isPowerOn = false;
+  let isPowerOn = true;
 </script>
 
 <main class="flex flex-col justify-center items-center h-screen bg-white dark:bg-background duration-0 selection:bg-primary selection:text-white">
@@ -30,6 +30,7 @@
     )}>
       <Display
         bind:value
+        bind:isPowerOn
       />
 
       <!-- Pager design buttons -->
@@ -37,6 +38,7 @@
         <button
           class="absolute -top-[28px] hover:scale-110 active:scale-100 origin-bottom left-16 w-16 h-6 rounded-t-lg bg-neutral dark:bg-white focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-neutral dark:focus-visible:ring-white focus-visible:ring-offset-2 dark:focus-visible:ring-offset-background"
         ></button>
+
         <button
           class="absolute -top-[28px] hover:scale-110 active:scale-100 origin-bottom right-16 w-16 h-6 rounded-t-lg bg-neutral dark:bg-white focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-neutral dark:focus-visible:ring-white focus-visible:ring-offset-2 dark:focus-visible:ring-offset-background"
         ></button>
@@ -65,7 +67,7 @@
                 <button
                   class="size-full rounded-full bg-primary dark:bg-white hover:scale-110 active:scale-100 relative focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary dark:focus-visible:ring-white focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"
                 ></button>
-                <span class="font-bold text-xl text-white absolute left-1/2 -translate-x-1/2 -bottom-8">
+                <span class="font-bold text-xl text-neutral dark:text-white absolute left-1/2 -translate-x-1/2 -bottom-8">
                   A
                 </span>
               </div>
@@ -74,7 +76,7 @@
                 <button
                   class="size-full rounded-full bg-primary dark:bg-white hover:scale-110 active:scale-100 relative focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary dark:focus-visible:ring-white focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"
                 ></button>
-                <span class="font-bold text-xl text-white absolute left-1/2 -translate-x-1/2 -bottom-8">
+                <span class="font-bold text-xl text-neutral dark:text-white absolute left-1/2 -translate-x-1/2 -bottom-8">
                   B
                 </span>
               </div>
