@@ -23,7 +23,15 @@
     <h1 class="flex flex-col justify-center items-center font-bold text-neutral h-full">
       the
       <span class="flex">
-        <span class="text-primary">{$currentMode}</span>
+        <span class="text-primary">
+          {#if $currentMode === "gameboy"}
+            <span>gameboy</span>
+          {:else if $currentMode === "pager"}
+            <span>pager</span>
+          {:else}
+            <span>rabbit r1</span>
+          {/if}
+        </span>
         <span>-inspired</span>
       </span>
       design
