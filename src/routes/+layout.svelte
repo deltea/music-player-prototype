@@ -1,4 +1,5 @@
 <script lang="ts">
+  import "@fontsource-variable/quicksand";
   import "../global.css";
   import "iconify-icon";
 </script>

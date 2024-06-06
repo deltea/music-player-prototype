@@ -11,7 +11,7 @@ export default {
         "primary": "var(--color-primary)",
       },
       fontFamily: {
-        "sans": ["monospace"],
+        "sans": ["Quicksand Variable", "sans-serif"],
       },
       borderRadius: {
         "xxl": "2.5rem",

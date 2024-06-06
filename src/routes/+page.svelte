@@ -35,17 +35,17 @@
       <!-- Pager design buttons -->
       {#if $currentMode === "pager"}
         <button
-          class="absolute -top-[23.5px] hover:scale-110 active:scale-100 origin-bottom left-16 w-16 h-6 rounded-t-lg bg-neutral dark:bg-white"
+          class="absolute -top-[28px] hover:scale-110 active:scale-100 origin-bottom left-16 w-16 h-6 rounded-t-lg bg-neutral dark:bg-white focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-neutral dark:focus-visible:ring-white focus-visible:ring-offset-2 dark:focus-visible:ring-offset-background"
         ></button>
         <button
-          class="absolute -top-[23.5px] hover:scale-110 active:scale-100 origin-bottom right-16 w-16 h-6 rounded-t-lg bg-neutral dark:bg-white"
+          class="absolute -top-[28px] hover:scale-110 active:scale-100 origin-bottom right-16 w-16 h-6 rounded-t-lg bg-neutral dark:bg-white focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-neutral dark:focus-visible:ring-white focus-visible:ring-offset-2 dark:focus-visible:ring-offset-background"
         ></button>
       {/if}
 
       <!-- Controls -->
       <div class="w-full flex-grow flex flex-col justify-center gap-10">
         {#if $currentMode === "gameboy"}
-          <div class="flex justify-between items-center">
+          <div class="flex justify-between items-center px-2">
             <!-- Arrows -->
             <div class="grid grid-cols-3 size-[6rem]">
               <div></div>
@@ -60,13 +60,24 @@
             </div>
 
             <!-- A/B Buttons -->
-            <div class="flex gap-4 rotate-skew">
-              <button
-                class="rounded-full bg-primary dark:bg-white size-10 hover:scale-110 active:scale-100 relative focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary dark:focus-visible:ring-white focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"
-              ></button>
-              <button
-                class="rounded-full bg-primary dark:bg-white size-10 hover:scale-110 active:scale-100 relative focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary dark:focus-visible:ring-white focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"
-              ></button>
+            <div class="flex gap-4 rotate-skew -translate-y-4">
+              <div class="size-10 relative">
+                <button
+                  class="size-full rounded-full bg-primary dark:bg-white hover:scale-110 active:scale-100 relative focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary dark:focus-visible:ring-white focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"
+                ></button>
+                <span class="font-bold text-xl text-white absolute left-1/2 -translate-x-1/2 -bottom-8">
+                  A
+                </span>
+              </div>
+
+              <div class="size-10 relative">
+                <button
+                  class="size-full rounded-full bg-primary dark:bg-white hover:scale-110 active:scale-100 relative focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary dark:focus-visible:ring-white focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary"
+                ></button>
+                <span class="font-bold text-xl text-white absolute left-1/2 -translate-x-1/2 -bottom-8">
+                  B
+                </span>
+              </div>
             </div>
           </div>
         {/if}
