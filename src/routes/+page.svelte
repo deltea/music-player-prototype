@@ -49,11 +49,11 @@
       <!-- Controls -->
       <div class={cn(
         "grow flex flex-col justify-center gap-10",
-        { "w-full": $currentMode === "gameboy" || $currentMode === "pager" },
+        { "w-full px-2": $currentMode === "gameboy" || $currentMode === "pager" },
         { "h-full": $currentMode === "rabbit" },
       )}>
         {#if $currentMode === "gameboy"}
-          <div class="flex justify-between items-center px-2">
+          <div class="flex justify-between items-center">
             <!-- Arrows -->
             <div class="grid grid-cols-3 size-[6rem]">
               <div></div>
@@ -101,7 +101,7 @@
             "relative flex items-center",
             {
               "w-full": $currentMode === "gameboy" || $currentMode === "pager",
-              "h-full flex-col ml-8": $currentMode === "rabbit",
+              "h-full flex-col ml-8 my-2": $currentMode === "rabbit",
             },
           )}
         >
