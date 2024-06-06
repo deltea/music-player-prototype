@@ -35,8 +35,8 @@
         bind:isPowerOn
       />
 
-      <!-- Pager design buttons -->
-      {#if $currentMode === "pager"}
+      <!-- Top buttons -->
+      {#if $currentMode === "pager" || $currentMode === "rabbit"}
         <button
           class="absolute -top-[28px] hover:scale-110 active:scale-100 origin-bottom left-16 w-16 h-6 rounded-t-lg bg-neutral dark:bg-white focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-neutral dark:focus-visible:ring-white focus-visible:ring-offset-2 dark:focus-visible:ring-offset-background"
         ></button>
