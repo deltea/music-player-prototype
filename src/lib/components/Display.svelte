@@ -7,16 +7,18 @@
 
 <div class="border-4 bg-white border-muted dark:border-white rounded-xl w-full h-[12rem]">
   {#if isPowerOn}
-    <h1 class="flex justify-center items-center font-bold text-neutral h-full">
-      <span>
-        <span>slider ~</span>
-        <span class="text-primary">{value[0]}%</span>
-      </span>
+    <h1 class="flex gap-2 justify-center items-center font-bold text-neutral h-full">
+      <span>slider</span>
+      <iconify-icon icon="mingcute:arrow-right-fill" class="text-base"></iconify-icon>
+      <span class="text-primary">{value[0]}%</span>
     </h1>
   {:else}
     <h1 class="flex flex-col justify-center items-center font-bold text-neutral h-full">
       the
-      <span class="text-primary">{$currentMode}</span>
+      <span class="flex">
+        <span class="text-primary">{$currentMode}</span>
+        <span>-inspired</span>
+      </span>
       design
     </h1>
   {/if}
