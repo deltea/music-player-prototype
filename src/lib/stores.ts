@@ -10,6 +10,7 @@ currentColor.subscribe(value => {
 export const modes = [
   "gameboy",
   "pager",
+  "rabbit",
 ] as const;
 export type Mode = typeof modes[number];
 export const currentMode = writable<Mode>("gameboy");

@@ -30,6 +30,8 @@ export default {
         "gameboy-height": "30rem",
         "pager-width": "30rem",
         "pager-height": "16rem",
+        "rabbit-width": "26rem",
+        "rabbit-height": "26rem",
       }
     },
   },

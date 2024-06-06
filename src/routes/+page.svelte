@@ -17,15 +17,17 @@
     "relative",
     { "pr-16": $currentMode === "gameboy" },
     { "pr-32": $currentMode === "pager" },
+    { "pr-16": $currentMode === "rabbit" },
   )}>
     <!-- The Player -->
     <div class={cn(
-      "border-4 bg-white dark:bg-primary border-muted dark:border-primary rounded-xxl p-8 flex flex-col gap-8 items-center z-50 relative",
+      "border-4 bg-white dark:bg-primary border-muted dark:border-primary rounded-xxl p-8 flex items-center z-50 relative",
       {
-        "translate-x-8": !isPaintOpen && $currentMode === "gameboy",
+        "translate-x-8": !isPaintOpen && ($currentMode === "gameboy" || $currentMode === "rabbit"),
         "translate-x-16": !isPaintOpen && $currentMode === "pager",
-        "w-gameboy-width h-gameboy-height": $currentMode === "gameboy",
-        "w-pager-width h-pager-height": $currentMode === "pager",
+        "w-gameboy-width h-gameboy-height flex-col gap-8": $currentMode === "gameboy",
+        "w-pager-width h-pager-height flex-col gap-8": $currentMode === "pager",
+        "w-rabbit-width h-rabbit-height": $currentMode === "rabbit",
       },
     )}>
       <Display
@@ -45,7 +47,11 @@
       {/if}
 
       <!-- Controls -->
-      <div class="w-full flex-grow flex flex-col justify-center gap-10">
+      <div class={cn(
+        "grow flex flex-col justify-center gap-10",
+        { "w-full": $currentMode === "gameboy" || $currentMode === "pager" },
+        { "h-full": $currentMode === "rabbit" },
+      )}>
         {#if $currentMode === "gameboy"}
           <div class="flex justify-between items-center px-2">
             <!-- Arrows -->
@@ -86,20 +92,45 @@
 
         <!-- Tactile slider -->
         <Slider.Root
-          bind:value={value}
+          bind:value
           let:thumbs
           min={0}
           max={100}
-          class="relative flex w-full items-center"
+          orientation={$currentMode === "rabbit" ? "vertical" : "horizontal"}
+          class={cn(
+            "relative flex items-center",
+            {
+              "w-full": $currentMode === "gameboy" || $currentMode === "pager",
+              "h-full flex-col ml-8": $currentMode === "rabbit",
+            },
+          )}
         >
-          <span class="relative h-4 w-full grow overflow-hidden rounded-full bg-muted dark:bg-white">
-            <Slider.Range class="absolute h-full bg-primary dark:bg-neutral duration-75" />
+          <span class={cn(
+            "relative overflow-hidden rounded-full bg-muted dark:bg-white",
+            {
+              "h-4 w-full": $currentMode === "gameboy" || $currentMode === "pager",
+              "w-4 h-full": $currentMode === "rabbit",
+            },
+          )}>
+            <Slider.Range class={cn(
+              "absolute bg-primary dark:bg-neutral duration-75",
+              {
+                "h-full": $currentMode === "gameboy" || $currentMode === "pager",
+                "w-full": $currentMode === "rabbit",
+              }
+            )} />
           </span>
 
           {#each thumbs as thumb}
             <Slider.Thumb
               {thumb}
-              class="block w-5 h-8 bg-primary dark:bg-neutral rounded-md z-10 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary dark:focus-visible:ring-neutral focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary hover:cursor-pointer duration-75 hover:scale-110 active:scale-100"
+              class={cn(
+                "block bg-primary dark:bg-neutral rounded-md z-10 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary dark:focus-visible:ring-neutral focus-visible:ring-offset-2 dark:focus-visible:ring-offset-primary hover:cursor-pointer duration-75 hover:scale-110 active:scale-100",
+                {
+                  "w-5 h-8": $currentMode === "gameboy" || $currentMode === "pager",
+                  "w-8 h-5": $currentMode === "rabbit",
+                }
+              )}
             />
           {/each}
         </Slider.Root>

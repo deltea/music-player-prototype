@@ -1,11 +1,18 @@
 <script lang="ts">
   import { currentMode } from "$lib/stores";
+    import { cn } from "$lib/utils";
 
   export let value: number[];
   export let isPowerOn: boolean;
 </script>
 
-<div class="border-4 bg-white border-muted dark:border-white rounded-xl w-full h-[12rem]">
+<div class={cn(
+  "border-4 bg-white border-muted dark:border-white rounded-xl",
+  {
+    "w-full h-[12rem]": $currentMode === "gameboy" || $currentMode === "pager",
+    "h-full w-full": $currentMode === "rabbit",
+  },
+)}>
   {#if isPowerOn}
     <h1 class="flex gap-2 justify-center items-center font-bold text-neutral h-full">
       <span>slider</span>
