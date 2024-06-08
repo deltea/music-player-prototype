@@ -9,7 +9,7 @@
 
   let value = [50];
   let isPaintOpen = false;
-  let isPowerOn = true;
+  let isPowerOn = false;
 </script>
 
 <main class="flex flex-col justify-center items-center h-screen bg-white dark:bg-background duration-0 selection:bg-primary selection:text-white">
