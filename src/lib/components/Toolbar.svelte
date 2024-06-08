@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { currentMode, currentModeIndex, modes } from "$lib/stores";
+  import { currentModeIndex, modes } from "$lib/stores";
   import { cn } from "$lib/utils";
   import { onMount } from "svelte";
 

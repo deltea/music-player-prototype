@@ -1,6 +1,6 @@
 <script lang="ts">
   import { currentMode } from "$lib/stores";
-    import { cn } from "$lib/utils";
+  import { cn } from "$lib/utils";
 
   export let value: number[];
   export let isPowerOn: boolean;
