@@ -6,6 +6,12 @@
   export let isPowerOn: boolean;
 
   let state = "home";
+  let prevState: string | null = null;
+
+  function changeState(newState: string) {
+    prevState = state;
+    state = newState;
+  }
 </script>
 
 <div class={cn(
@@ -40,7 +46,7 @@
       <!-- Home -->
       <div class="h-full flex items-center justify-evenly">
         <button
-          on:click={() => (state = "music")}
+          on:click={() => changeState("music")}
           class="inline-flex flex-col items-center gap-2 font-bold"
         >
           <iconify-icon icon="mingcute:music-2-fill" class="text-4xl"></iconify-icon>
@@ -48,7 +54,7 @@
         </button>
 
         <button
-          on:click={() => (state = "videos")}
+          on:click={() => changeState("videos")}
           class="inline-flex flex-col items-center gap-2 font-bold"
         >
           <iconify-icon icon="mingcute:tv-2-fill" class="text-4xl"></iconify-icon>
@@ -56,7 +62,7 @@
         </button>
 
         <button
-          on:click={() => (state = "camera")}
+          on:click={() => changeState("camera")}
           class="inline-flex flex-col items-center gap-2 font-bold"
         >
           <iconify-icon icon="mingcute:camera-2-fill" class="text-4xl"></iconify-icon>
@@ -64,7 +70,7 @@
         </button>
 
         <button
-          on:click={() => (state = "gallery")}
+          on:click={() => changeState("gallery")}
           class="inline-flex flex-col items-center gap-2 font-bold"
         >
           <iconify-icon icon="mingcute:photo-album-2-fill" class="text-4xl"></iconify-icon>
@@ -76,7 +82,7 @@
     <!-- Back button -->
     {#if state !== "home"}
       <button
-        on:click={() => (state = "home")}
+        on:click={() => (state = prevState ?? "home")}
         class="absolute top-1 left-1 hover:scale-110 active:scale-100 flex justify-center items-center text-primary"
       >
         <iconify-icon icon="mingcute:arrow-left-circle-fill" class="text-2xl"></iconify-icon>
