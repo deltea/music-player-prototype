@@ -12,7 +12,7 @@
   let isPowerOn = false;
 </script>
 
-<main class="flex flex-col justify-center items-center h-screen bg-white dark:bg-background duration-0 selection:bg-primary selection:text-white">
+<main class="flex flex-col justify-center items-center h-screen bg-white dark:bg-background duration-0 selection:bg-primary selection:text-white text-neutral">
   <div class={cn(
     "relative",
     { "pr-16": $currentMode === "gameboy" },
@@ -38,11 +38,11 @@
       <!-- Top buttons -->
       {#if $currentMode === "pager" || $currentMode === "rabbit"}
         <button
-          class="absolute -top-[20px] hover:scale-y-110 active:scale-y-75 origin-bottom left-16 w-16 h-4 rounded-t-lg bg-neutral dark:bg-white focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-neutral dark:focus-visible:ring-white focus-visible:ring-offset-2 dark:focus-visible:ring-offset-background"
+          class="absolute -top-[19.5px] hover:scale-y-110 active:scale-y-75 origin-bottom left-16 w-16 h-4 rounded-t-lg bg-neutral dark:bg-white focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-neutral dark:focus-visible:ring-white focus-visible:ring-offset-2 dark:focus-visible:ring-offset-background"
         ></button>
 
         <button
-          class="absolute -top-[20px] hover:scale-y-110 active:scale-y-75 origin-bottom right-16 w-16 h-4 rounded-t-lg bg-neutral dark:bg-white focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-neutral dark:focus-visible:ring-white focus-visible:ring-offset-2 dark:focus-visible:ring-offset-background"
+          class="absolute -top-[19.5px] hover:scale-y-110 active:scale-y-75 origin-bottom right-16 w-16 h-4 rounded-t-lg bg-neutral dark:bg-white focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-neutral dark:focus-visible:ring-white focus-visible:ring-offset-2 dark:focus-visible:ring-offset-background"
         ></button>
       {/if}
 

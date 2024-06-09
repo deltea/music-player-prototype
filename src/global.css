@@ -6,4 +6,8 @@
   * {
     transition-duration: 150ms;
   }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
